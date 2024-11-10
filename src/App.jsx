@@ -1,4 +1,7 @@
 import {RouterProvider, createBrowserRouter, Navigate} from "react-router-dom";
+import {QueryClientProvider} from "@tanstack/react-query";
+import {queryClient} from "./services/queries.js";
+
 import Events from "./components/Events/Events.jsx";
 import NewEvent from "./components/Events/NewEvent.jsx";
 import EventDetails from "./components/Events/EventsDetails.jsx";
@@ -36,7 +39,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router}/>
+        <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router}/>
+        </QueryClientProvider>
     </>
   )
 }

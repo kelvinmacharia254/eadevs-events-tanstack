@@ -1,9 +1,32 @@
+import {useEventsQuery} from "../../services/queries.js";
+import EventItem from "./EventItem.jsx";
 
 export default function NewEventsSection(){
+    const {data,isPending,isError, error} = useEventsQuery();
+
 
     let content;
 
-    content = "List of Events"
+    if(isPending){
+        content = <p>Loading...</p>;
+    }
+
+    if(isError){
+        content = <p>An error occurred: {error.message}</p>;
+    }
+
+    if(data){
+        content = (
+      <ul className="events-list">
+        {data.map((event) => (
+          <li key={event.id}>
+            <EventItem event={event} />
+          </li>
+        ))}
+      </ul>
+    );
+    }
+
     return (
         <section
             id="new-events-section"
