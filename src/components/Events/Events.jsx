@@ -2,6 +2,8 @@ import {Link, Outlet} from "react-router-dom";
 import Header from "../Header.jsx";
 import EventsIntroSection from "./EventsIntroSection.jsx";
 import NewEventsSection from "./NewEventsSection.jsx";
+import {Fragment} from "react";
+import FindEventSection from "./FindEventSection.jsx";
 
 export default function Events(){
     return (
@@ -13,6 +15,7 @@ export default function Events(){
             <main>
                 <EventsIntroSection/>
                 <NewEventsSection/>
+                <FindEventSection/>
             </main>
         </>
     )
