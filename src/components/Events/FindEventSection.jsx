@@ -3,6 +3,8 @@ import {useRef, useState} from "react";
 import {fetchEvents} from "../../services/http.js";
 import EventItem from "./EventItem.jsx";
 import {useSearchEventQuery} from "../../services/queries.js";
+import LoadingIndicator from "../UI/LoadingIndicator.jsx";
+import ErrorBlock from "../UI/ErrorBlock.jsx";
 
 export default function FindEventSection(){
     const searchElement = useRef()
@@ -15,15 +17,29 @@ export default function FindEventSection(){
     setSearchTerm(searchElement.current.value);
   }
 
+  function handleInvalid(event) {
+    event.target.setCustomValidity("Please enter an event name to search.");
+  }
+
+  function handleInput(event) {
+    event.target.setCustomValidity(""); // Clear custom error message
+  }
+
     let content = <p>Enter Event name to search</p>
 
     if(isLoading){
-        content = <p>Loading event</p>
+        content = (
+            <LoadingIndicator/>
+        )
     }
 
     if(isError){
-        content = <p>An Error Occurred</p>
+        content = (
+            <ErrorBlock
+                title="An error occurred"
+                message={error.info?.message || "failed to fetch events"}/>);
     }
+
 
     if (data){
         content = (
@@ -46,6 +62,9 @@ export default function FindEventSection(){
                         type="text"
                         placeholder="Search events"
                         ref={searchElement}
+                        required
+                        onInvalid={handleInvalid}
+                        onInput={handleInput}
                     />
                     <button>Search</button>
                 </form>

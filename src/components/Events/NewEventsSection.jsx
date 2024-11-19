@@ -1,6 +1,7 @@
 import {useEventsQuery} from "../../services/queries.js";
 import EventItem from "./EventItem.jsx";
-
+import ErrorBlock from "../UI/ErrorBlock.jsx";
+import LoadingIndicator from "../UI/LoadingIndicator.jsx";
 export default function NewEventsSection(){
     const {data,isPending,isError, error} = useEventsQuery();
 
@@ -8,11 +9,16 @@ export default function NewEventsSection(){
     let content;
 
     if(isPending){
-        content = <p>Loading...</p>;
+        content = (
+            <LoadingIndicator/>
+        )
     }
 
     if(isError){
-        content = <p>An error occurred: {error.message}</p>;
+        content = (
+            <ErrorBlock
+                title="An error occurred"
+                message={error.info?.message || "failed to fetch events"}/>);
     }
 
     if(data){
