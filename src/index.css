@@ -43,6 +43,12 @@ ul {
   gap: 1.5rem;
 }
 
+/* header children(nav items)*/
+.nav-item {
+  text-decoration: none;
+  color: #b6cad5;
+}
+
 /*#header-title img {*/
 /*  width: 4rem;*/
 /*  height: 4rem;*/
@@ -313,4 +319,72 @@ lds-ring div:nth-child(1) {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* events-detail */
+#event-details header {
+  width: 40rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#event-details header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+#event-details header button,
+#event-details header a {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #b6cad5;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.25rem;
+}
+
+#event-details-content {
+  width: 40rem;
+  margin: 2rem auto;
+  background-color: #343b3f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#event-details-content img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+#event-details-info {
+  padding: 0 3rem 3rem 3rem;
+}
+
+#event-details time {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+#event-details-location {
+  font-size: 1.15rem;
+  color: #b6cad5;
+  font-weight: bold;
+  margin: 0;
+}
+
+#event-details-description {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  color: #b6cad5;
+}
+
+.center {
+  text-align: center;
 }
