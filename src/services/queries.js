@@ -1,5 +1,5 @@
 import {QueryClient, useQuery} from "@tanstack/react-query";
-import {fetchEvent, fetchEvents} from "./http.js";
+import {fetchEvent, fetchEvents, fetchSelectableImages} from "./http.js";
 
 export const queryClient = new QueryClient();
 
@@ -27,4 +27,12 @@ export function useEventQuery(id){
         queryKey: ["events", {id}],
         queryFn: ({signal}) => fetchEvent({signal, id:id}),
     })
+}
+
+
+export function useFetchImages(){
+    return useQuery({
+    queryKey: ["events-images"],
+    queryFn: fetchSelectableImages,
+  });
 }

@@ -14,7 +14,7 @@ const router =createBrowserRouter( [
           element:<Navigate to ="events"/>
         },
         {
-          path:"events",
+          path:"/events",
           element:<Events/>,
           children: [
             {
