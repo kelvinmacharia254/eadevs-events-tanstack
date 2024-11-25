@@ -2,7 +2,7 @@ import {useEventsQuery} from "../../services/queries.js";
 import EventItem from "./EventItem.jsx";
 import ErrorBlock from "../UI/ErrorBlock.jsx";
 import LoadingIndicator from "../UI/LoadingIndicator.jsx";
-export default function NewEventsSection(){
+export default function EventsListingSection(){
     const {data,isPending,isError, error} = useEventsQuery();
 
 
