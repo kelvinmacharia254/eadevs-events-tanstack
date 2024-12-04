@@ -1,7 +1,7 @@
 import {QueryClient, useQuery} from "@tanstack/react-query";
 import {fetchEvent, fetchEvents, fetchSelectableImages} from "./http.js";
 
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient(); // Create a new instance of QueryClient to manage the cache and queries.
 
 // fetch all events
 export function useEventsQuery(){
