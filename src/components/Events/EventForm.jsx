@@ -16,7 +16,6 @@ export default function EventForm({ inputData, onSubmit, children }) {
   }
 
   function handleSubmit(event) {
-      console.log("handleSubmit")
     event.preventDefault();
 
     const formData = new FormData(event.target);
